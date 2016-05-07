@@ -1,0 +1,76 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.wordpress.techotom</groupId>
+	<artifactId>adaptive-trading-system</artifactId>
+	<version>1.0-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<java.version>1.7</java.version>
+	</properties>
+
+	<repositories>
+		<repository>
+			<!-- See http://stackoverflow.com/a/7623805/1410035 for why this approach is best -->
+			<id>repo</id>
+			<url>file://${project.basedir}/repo</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.hsqldb</groupId>
+			<artifactId>hsqldb</artifactId>
+			<version>2.2.4</version>
+		</dependency>
+		<dependency>
+			<groupId>com.mckoi</groupId>
+			<artifactId>mckoisqldb</artifactId>
+			<version>1.0.5</version>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.12</version>
+		</dependency>
+		<dependency>
+			<groupId>javadb</groupId>
+			<artifactId>javadb</artifactId>
+			<version>10.10.2.0</version>
+			<type>zip</type>
+		</dependency>
+		<dependency>
+			<groupId>nz.ac.waikato.cs</groupId>
+			<artifactId>weka</artifactId>
+			<version>3.7.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.ow2</groupId>
+			<artifactId>rmijdbc</artifactId>
+			<version>3.3</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+					<compilerArgument>-Xlint:all</compilerArgument>
+					<showWarnings>true</showWarnings>
+					<showDeprecation>true</showDeprecation>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
